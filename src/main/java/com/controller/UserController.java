@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -28,6 +30,15 @@ public class UserController {
 			
 			System.out.println("user not inserted...");
 		}
+		
+		List<UserBean> users = userDao.getAllusers1();
+		for(UserBean user:users) {
+			System.out.print(user.getuId()+" "+user.getuName());
+			System.out.println();
+		}
+		
+		userBean = userDao.getUserbyId(1);
+		System.out.println(userBean.getuId() + " "+userBean.getuName());
 
 	}
 }
